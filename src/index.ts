@@ -1,8 +1,8 @@
 import express, { Express, Request, Response } from "express";
 const app: Express = express();
 const port = 3000;
-const { Sequelize } = require("sequelize");
-import db from "../models/index";
+// const { Sequelize } = require("sequelize");
+import db from "../models/";
 import { GraphQLClient, gql } from "graphql-request";
 // (async function () {
 //   const endpoint = "https://graphql-pokemon2.vercel.app";
@@ -54,10 +54,17 @@ import { GraphQLClient, gql } from "graphql-request";
 //   res.send("Express + TypeScript Server");
 // });
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${3000}`);
-  db.sync().then(() => {
-    console.log("connect to db");
-    const [result] = db.sequelize.query("select * from users");
-  });
+  // const data = {
+  //   pokemondata: {
+  //     id: "UG9rZW1vbjowMDE=",
+  //     name: "Bulbasaur",
+  //     number: "001",
+  //   },
+  // };
+  // const record = await db.pokemons.create(data);
+  // console.log({ record, msg: "Successfully create todo" });
+  const results = await db.pokemons.findAll();
+  console.log("All users:", JSON.stringify(results));
 });

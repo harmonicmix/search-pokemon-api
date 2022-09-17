@@ -1,1 +1,1 @@
-node ./node_modules/sequelize-auto/bin/sequelize-auto -o "./models" -d pokemon -h localhost -u postgres -p 5432 -x 1234 -e postgres
+node ./node_modules/sequelize-auto/bin/sequelize-auto -o "./models" -d pokemon -h localhost -u postgres -p 5432 -x 1234 -e postgres -l ts

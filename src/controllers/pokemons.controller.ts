@@ -1,22 +1,25 @@
 import { RequestHandler } from "express";
-const { Op } = require("sequelize");
 import db from "../models";
+const { sendResponse } = require("../utils/response");
 
 export const getPokemons: RequestHandler = async (req, res, next) => {
   const result = await db.pokemons.findAll();
-  res.send(result);
+  await sendResponse(res, 200, "success", result);
 };
+
 export const searchPokemonsByName: RequestHandler = async (req, res, next) => {
   const name = req.query.name;
-  console.log("id: " + req.query.name);
   const result = await db.pokemons.findAll({
     where: {
       pokemondata: {
-        name: {
-          [Op.like]: `%${name}%`,
-        },
+        name: name,
       },
     },
   });
-  res.send(result);
+  if (result.length) {
+    await sendResponse(res, 200, "success", result);
+  } else {
+    console.log("b");
+    await sendResponse(res, 500, "error", "not Found");
+  }
 };

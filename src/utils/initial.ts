@@ -23,7 +23,7 @@ const getDatafromGraphQl = async () => {
   const graphQLClient = new GraphQLClient(endpoint);
 
   const query = gql`
-    query pokemons($first: Int = 2) {
+    query pokemons($first: Int = 155) {
       pokemons(first: $first) {
         id
         number

@@ -1,6 +1,7 @@
 const response = {
   sendResponse: async (
     res: {
+      header(arg0: string, arg1: string): unknown;
       status: (arg0: any) => {
         (): any;
         new (): any;
@@ -15,6 +16,7 @@ const response = {
       statusName,
       data,
     };
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(statusCode).json(resp);
   },
 };

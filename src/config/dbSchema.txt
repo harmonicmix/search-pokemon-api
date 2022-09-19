@@ -1,0 +1,10 @@
+-- public.pokemons definition
+
+-- Drop table
+
+-- DROP TABLE public.pokemons;
+
+CREATE TABLE public.pokemons (
+	id uuid NOT NULL,
+	pokemondata jsonb NULL
+);

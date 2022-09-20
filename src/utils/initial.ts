@@ -1,7 +1,6 @@
 import db from "../models";
 import { GraphQLClient, gql } from "graphql-request";
 import { Pokedex, Pokemon } from "../interface/pokedex";
-require("dotenv").config();
 
 const initialData = async () => {
   const results = await db.pokemons.findOne();
@@ -11,10 +10,7 @@ const initialData = async () => {
     data.map((e) => {
       dataPokemon.push({ pokemondata: e });
     });
-    console.log(dataPokemon);
     await db.pokemons.bulkCreate(dataPokemon);
-  } else {
-    console.log("have data don't be initail");
   }
 };
 
@@ -72,7 +68,7 @@ const getDatafromGraphQl = async () => {
     }
   `;
   const data = await graphQLClient.request<Pokedex>(query);
-  let result: Pokedex = {
+  const result: Pokedex = {
     ...data,
   };
   return result.pokemons;

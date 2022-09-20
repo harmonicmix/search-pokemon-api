@@ -19,7 +19,6 @@ export const searchPokemonsByName: RequestHandler = async (req, res, next) => {
   if (result.length) {
     await sendResponse(res, 200, "success", result);
   } else {
-    console.log("b");
     await sendResponse(res, 400, "error", "not Found");
   }
 };

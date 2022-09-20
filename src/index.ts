@@ -12,6 +12,5 @@ app.use(
   })
 );
 app.listen(port, async () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
   initialData();
 });

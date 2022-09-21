@@ -22,3 +22,24 @@ FRONT_BASE=<YOUR FRONTEND ENDPOINT>
 ```
 yarn dev 
 ```
+
+# Run by Docker
+- config Dockerfile
+```
+ENV DB_USER=<YOUR DATABASE USERNAME>
+ENV DB_PASS=<YOUR DATABASE PASSWORD>
+ENV DB_NAME=<YOUR DATABASE NAME>
+ENV DB_HOST=<YOUR DATABASE HOST>
+ENV DB_PORT=<YOUR DATABASE PORT>
+ENV FRONT_BASE=<YOUR FRONTEND ENDPOINT>
+```
+- create docker build
+```
+docker build -t search-pokemons-api .
+```
+- run docker
+```
+docker run -d -p 3000:3000 --name search-pokemons-api search-pokemons-api
+```
+
+

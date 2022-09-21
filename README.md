@@ -39,7 +39,7 @@ docker build -t search-pokemons-api .
 ```
 - run docker
 ```
-docker run -d -p 3000:3000 --name search-pokemons-api search-pokemons-api
+docker run -d -p 5558:5558 --name search-pokemons-api search-pokemons-api
 ```
 
 

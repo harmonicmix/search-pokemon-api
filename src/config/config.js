@@ -1,11 +1,11 @@
-const { dbUser, dbPass, dbName, dbHost } = require("../constants");
+const { dbUser, dbPass, dbName, dbHost, dbPort } = require("../constants");
 module.exports = {
   development: {
     username: dbUser,
     password: dbPass,
     database: dbName,
     host: dbHost,
-    port: 5433,
+    port: dbPort,
     dialect: "postgres",
   },
   test: {
